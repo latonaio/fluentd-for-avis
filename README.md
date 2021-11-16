@@ -1,6 +1,6 @@
 # fluentd-for-avis
 
-fluentd-for-avis は、[avis](https://github.com/latonaio/avis) のデータ収集元として、エッジ端末等内においてログデータを収集するためのリソースです。  
+fluentd-for-avis は、収集されたログをデータ収集用のRabbitMQのキューに保存するリソースです。
 fluentd を動かすためには、fluentd-for-avis の他に、下記のようなレポジトリを参照して、設定を行う必要があります。  
 
 * fluentd-for-docker-containers  
