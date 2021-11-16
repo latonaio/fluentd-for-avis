@@ -1,0 +1,29 @@
+<match rewrite.avis.**>  # 必要に応じてタグ名を変更してください
+  @type rabbitmq
+  host rabbitmq          # 必要に応じてホスト名を変更してください
+  user xxxxx             # RabbitMQのユーザ名を定義してください
+  pass xxxxx             # RabbitMQのパスワードを定義してください
+  vhost xxxxxxxx         # RabbitMQのバーチャルホストを定義してください
+  format json
+  exchange ""
+  exchange_type direct
+  exchange_durable true
+  routing_key avis-client-kube-queue # 必要に応じてキュー名を変更してください
+  content_type application/json
+  expiration 5000
+  heartbeat 1 
+  <format>
+    @type json
+  </format>
+  <buffer>
+    flush_mode interval
+    retry_type exponential_backoff
+    flush_thread_count 2
+    flush_interval 5s
+    retry_forever
+    retry_max_interval 30
+    chunk_limit_size 2M
+    queue_limit_length 8
+    overflow_action block
+  </buffer>
+</match>
